@@ -25,11 +25,32 @@ Fonts:
 
 /* Set up the main font and background color for the whole page */
 body {
+  background-image: url('img/hero_img.png'); /* Background image for the whole page */
+  background-size: cover; /* Make the image cover the whole page */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Don't repeat the image */
+  background-attachment: fixed; /* Keep the background fixed while scrolling */
+  /* Use a light background color for the page */
+  /* This gives a fresh and clean look */
   background-color: #f4f8fb; /* Soft light blue for a fresh look */
   font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
   margin: 0;
   padding: 0;
   color: #222;
+}
+.fixed-logo {
+  position: fixed;           /* Keeps the logo in place as you scroll */
+  bottom: 24px;                 /* Distance from the top of the page */
+  right: 24px;                /* Distance from the left of the page */
+  /*background: #fff;          /* White background for the box */
+  border-radius: 16px;       /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10); /* Soft shadow for depth */
+  padding: 12px;             /* Space around the logo */
+  z-index: 1000;             /* Make sure it stays on top */
+}
+.fixed-logo img {
+  width: 80px;               /* Adjust size as needed */
+  display: block;
 }
 
 /* Add a slight shadow and rounded corners to each section for depth */
@@ -39,13 +60,15 @@ section {
   /*box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
   margin: 24px 10px; /* Space between sections */
   padding: 24px 16px;
+  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
 }
 
 /* Hero Section Styles */
 .hero {
   position: relative; /* Needed for overlay */
+  margin-top: 100px;
   /* Set a background image that covers the whole section */
-  background-image: url('img/hero_img.png');
+  /*background-image: url('img/hero_img.png');
   background-size: cover;      /* Make the image cover the whole area */
   background-position: center; /* Center the image */
   background-repeat: no-repeat;
@@ -64,8 +87,9 @@ section {
 
 /* Make the headline bold and modern */
 .hero h1 {
-  font-size: 2.5em;
+  font-size: 1.65em;
   font-weight: bold;
+  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
   letter-spacing: 1px;
   margin-bottom: 15px;
   text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
@@ -80,7 +104,7 @@ section {
 
 /* Story Section Styles */
 .story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
+  background-color: #FFC907; /* Yellow */
   color: #222;
   text-align: center;
   padding: 30px 20px;
@@ -88,8 +112,9 @@ section {
 
 /* Add accent color to section headings */
 h2 {
-  color: #2E9DF7; /* Primary blue */
+  color: #159A48; /* green */
   margin-top: 0;
+  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
   font-weight: bold;
 }
 
@@ -113,11 +138,11 @@ h2 {
 /* Donate Button Styles */
 .donate-button {
   display: inline-block;
-  background-color: #4FCB53; /* Green */
+  background-color: #159A48; /* Green */
   color: #fff;
-  padding: 14px 32px;
+  padding: 12px 25px;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 25px;
   font-weight: bold;
   font-size: 1.1em;
   margin-top: 18px;
@@ -129,7 +154,7 @@ h2 {
 
 /* Change button color when hovered */
 .donate-button:hover {
-  background-color: #159A48; /* Dark Green */
+  background-color: #4FCB53; /* Dark Green */
   transform: translateY(-2px) scale(1.04); /* Slight lift */
 }
 
@@ -224,23 +249,27 @@ body, html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.45);
+  /*background-color: rgba(0, 0, 0, 0.45); */
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 30px 40px 20px 20px;
   box-sizing : border-box;  
   border-radius: 0 0 16px 16px; /* Rounded corners at the bottom */
 }
 
 .content {
   max-width: 600px;
-  text-align: center;
+  text-align: left;
   background-color: rgba(0, 0, 0, 0.25);
-  padding: 30px;
+  padding: 24px;
   border-radius: 10px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .logo {
@@ -261,7 +290,8 @@ p {
 }
 
 .cta-button {
-  background: #ffc107;
+  background: #FFC907;
+  display: inline-block;
   color: black;
   padding: 12px 25px;
   border-radius: 25px;
@@ -272,4 +302,20 @@ p {
 
 .cta-button:hover {
   background: #e0a800;
+  transform: translateY(-2px) scale(1.04); /* Slight lift */
+}
+
+.bottom-center-logo {
+  display: flex; /* Use flex to center the image */
+  justify-content: center; /* Center horizontally */
+  position: absolute; /* Position at the bottom of the hero */
+  left: 0;
+  right: 0;
+  bottom: 20px; /* Space from the bottom, adjust as needed */
+  pointer-events: none; /* So it doesn't block clicks */
+}
+
+.bottom-center-logo img {
+  display: block;
+  margin: 0 auto;
 }
